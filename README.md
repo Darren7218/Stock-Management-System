@@ -1,127 +1,97 @@
-**Stock Management System (SMS)**
+# 📦 Stock-Management-System
 
-A Java-based application for managing inventory of electronic appliances. This project includes both a command-line interface (CLI) and a Graphical User Interface (GUI) built with JavaFX to handle product tracking, stock updates, and status management.
+![Java](https://img.shields.io/badge/Language-Java-ED8B00?style=flat-square&logo=openjdk)
+![JavaFX](https://img.shields.io/badge/Framework-JavaFX-1572B6?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=flat-square)
+![Course](https://img.shields.io/badge/Course-Object_Oriented_Programming-blue?style=flat-square)
 
+**Object-Oriented Programming Group Assignment** A robust Java-based application designed for managing an inventory of electronic appliances. This project showcases strong OOP principles (Inheritance, Polymorphism, Encapsulation) and provides both a Command-Line Interface (CLI) and a Graphical User Interface (GUI) built with JavaFX.
 
-**📋 Features**
+---
 
-User Identification: Captures user name and auto-generates a User ID based on the input.
+## ✨ Features
 
-Product Flexibility: Supports different types of products using inheritance:
+* **👤 User Identification:** Automatically generates a unique User ID based on the user's input name (First initial + Last name).
+* **🔌 Polymorphic Product Handling:** Supports multiple product categories utilizing class inheritance:
+  * **Refrigerators:** Tracks Door Design, Color, and Capacity.
+  * **TVs:** Tracks Screen Type, Resolution, and Display Size.
+  * **Air Conditioners:** Tracks AC Type, Energy Rating, and Cooling Capacity.
+* **📦 Comprehensive Stock Operations:**
+  * Register new products into the inventory.
+  * Add or deduct stock quantities (with active validation).
+  * Calculate overall inventory valuation.
+* **⚙️ Status Management:** Includes functionalities to discontinue outdated products or reactivate returning ones.
+* **🖥️ Dual Interfaces:** Choose between a lightweight, menu-driven Console Version or a fully interactive JavaFX GUI featuring table views, pop-ups, and dialog boxes.
 
-Refrigerators (with Door Design, Color, Capacity)
+---
 
-TVs (with Screen Type, Resolution, Display Size)
+## 📂 Project Structure
 
-Air Conditioners (with AC Type, Energy Rating, Cooling Capacity)
+### 🧱 Base & Model Classes
+* `Product.java`: The abstract base class defining common attributes (Item Number, Name, Quantity, Price, Status).
+* `Refrigerator.java`, `TV.java`, `AirConditioner.java`: Subclasses extending `Product` with category-specific attributes.
+* `UserInfo.java`: Handles user session logic and User ID generation.
 
-Stock Operations:
+### ⚙️ Application Logic
+* `StockManagement.java`: The main execution class for the **Console (CLI)** implementation.
+* `StockManagementGUI.java`: The main execution class for the **JavaFX (GUI)** implementation.
 
-Add new products to the inventory.
+---
 
-View product details and calculate inventory value.
+## 🚀 Getting Started
 
-Add stock (increase quantity).
+### Prerequisites
+* Java Development Kit (JDK) 8 or higher.
+* *For GUI:* JavaFX SDK (required if using JDK 11 or higher, as it is no longer bundled with the standard JDK).
 
-Deduct stock (decrease quantity with validation).
+### Option 1: Running the Console Application
+1. **Compile the files:**
+   ```bash
+   javac StockManagement.java Product.java Refrigerator.java TV.java AirConditioner.java UserInfo.java
+2. **Run the application:**
+   ```bash
+   java StockManagement
 
-Status Management: Helper functions to discontinue products or reactivate them.
+### Option 2: Running the GUI Application
+1. **Ensure JavaFX is configured in your library path.**
 
-Dual Interfaces:
+2. **Compile the files:**
+   ```bash
+   javac --module-path /path/to/javafx/lib --add-modules javafx.controls,javafx.fxml StockManagementGUI.java Product.java Refrigerator.java TV.java AirConditioner.java
 
-Console Version: Text-based menu flow.
+3. **Run the application:**
+   ```bash
+   java --module-path /path/to/javafx/lib --add-modules javafx.controls,javafx.fxml StockManagementGUI
 
-GUI Version: JavaFX table view with interactive buttons and dialogs.
+## 🛠️ Usage Guide
+**Console Mode:**
 
+1. Enter your full name when prompted.
 
-**📂 Project Structure**
-The project consists of the following Java source files:
+2. Follow the on-screen prompts (Y/N) to begin adding products.
 
-Base & Model Classes
+3. Select the appliance type (1. Refrigerator, 2. TV, 3. AC) and fill in the required specifications.
 
-Product.java: The abstract base class defining common attributes (Item Number, Name, Quantity, Price, Status).
+4. Use the numeric menu to View, Add Stock, Deduct Stock, or Exit.
 
-Refrigerator.java: Subclass of Product with specific attributes like door design and capacity.
+**GUI Mode:**
 
-TV.java: Subclass of Product with attributes like screen type and resolution.
+1. Enter your name in the initial popup dialog.
 
-AirConditioner.java: Subclass of Product with attributes like energy rating and cooling capacity.
+2. Use the Add Product button to register new inventory items via the input form.
 
-UserInfo.java: Handles user input and logic for generating the User ID (First initial + Last name).
+3. Select any row in the main table to enable context actions: Add Stock, Deduct Stock, or View Details.
 
-Application Logic
-
-StockManagement.java: The main class for the Console implementation. Contains the logic for the menu-driven text interface.
-
-StockManagementGUI.java: The main class for the JavaFX implementation. Provides a windowed interface with tables and pop-ups.
-
-
-🚀 How to Run
-Prerequisites
-
-Java Development Kit (JDK) 8 or higher.
-
-(For GUI) JavaFX SDK if using JDK 11 or higher (as it is no longer bundled with the JDK).
-
-Option 1: Running the Console Application
-
-Compile the files:
-<BASH>
-javac StockManagement.java Product.java Refrigerator.java TV.java AirConditioner.java UserInfo.java
-
-Run the main class:
-<BASH>
-java StockManagement
-
-Option 2: Running the GUI Application
-
-Ensure JavaFX is configured in your library path.
-
-Compile the files:
-
-<BASH>
-javac --module-path /path/to/javafx/lib --add-modules javafx.controls,javafx.fxml StockManagementGUI.java Product.java Refrigerator.java TV.java AirConditioner.java
-  
-Run the GUI:
-  
-<BASH>
-java --module-path /path/to/javafx/lib --add-modules javafx.controls,javafx.fxml StockManagementGUI
+4. Use the Discontinue / Reactivate toggles to manage the product lifecycle status.
 
 
-**👥 Group Members**
+## 👥 Group Members
+Universiti Tunku Abdul Rahman (UTAR) - Computer Science
 
-Chuan Ning Le
+* Chuan Ning Le
 
-Ooh Rui Hang
+* Ooh Rui Hang
 
-Oon Xiang Yu
+* Oon Xiang Yu
 
-Wilson Fook Wei Sheng
-
-
-**🛠 Usage Guide**
-
-**Console Mode**
-
-Enter your full name when prompted.
-
-Choose 'Y' to start adding products.
-
-Specify the number of products you wish to enter.
-
-Select the type of product (1. Refrigerator, 2. TV, 3. AC) and fill in the details.
-
-Use the menu to View, Add Stock, Deduct Stock, or exit.
-
-
-**GUI Mode**
-
-Enter your name in the popup dialog.
-
-Use the Add Product button to create new inventory items via a form.
-
-Select a row in the table and click Add Stock or Deduct Stock to modify quantities.
-
-Click View Details to see specific technical specifications of the selected appliance.
-
-Use Discontinue/Reactivate to toggle the product status
+* Wilson Fook Wei Sheng
